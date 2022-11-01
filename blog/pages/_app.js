@@ -4,7 +4,7 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="h-screen overflow-y-scroll bg-slate-200">
+    <div className="h-screen overflow-y-scroll bg-teal-50">
       <Header2 />
       <Component {...pageProps} />
     </div>
