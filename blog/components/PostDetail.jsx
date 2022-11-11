@@ -6,6 +6,22 @@ const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
+    if (obj.href) {
+      return (
+        <div className="video-responsive">
+          <iframe
+            width="853"
+            height="480"
+            src={obj.href}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+          />
+        </div>
+      );
+    }
+
     if (obj) {
       if (obj.bold) {
         modifiedText = (
@@ -35,7 +51,7 @@ const PostDetail = ({ post }) => {
         );
       case "paragraph":
         return (
-          <p key={index} className="mb-8">
+          <p key={index} className="mb-8 text-lg">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -59,6 +75,7 @@ const PostDetail = ({ post }) => {
             src={obj.src}
           />
         );
+
       default:
         return modifiedText;
     }
